@@ -38,7 +38,20 @@
    scripts/docker-exec.sh
    ```
 
-4. **Stop the containers**:
+4. **Opening the GUI**:
+   Navigate to any web browser and paste the URL
+   ```
+   http://localhost:8080/vnc.html
+   ```
+   Then press "Connect"
+
+5. **Testing Gazebo**:
+   Open up a terminal within the ros_container (either through the noVNC interface or by running `scripts/docker-exec.sh`) and open Gazebo using
+   ```bash
+   gz sim
+   ```
+
+5. **Stop the containers**:
    ```bash
    scripts/docker-down.sh
    ```
