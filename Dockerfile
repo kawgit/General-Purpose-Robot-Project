@@ -1,10 +1,9 @@
 FROM ubuntu:noble
 
-WORKDIR /root/ros2_ws
-CMD ["/bin/bash"]
-
 # Update and upgrade the system
 RUN apt update && apt upgrade -y
+
+# -------------------- Install ROS2 and Gazebo --------------------
 
 # Install ROS following https://docs.ros.org/en/jazzy/Installation/Alternatives/Ubuntu-Development-Setup.html
 RUN apt install -y software-properties-common && \
@@ -18,13 +17,23 @@ RUN apt install -y software-properties-common && \
     echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
 
 # Install Gazebo following https://gazebosim.org/docs/harmonic/ros_installation/
-RUN apt-get install -y ros-jazzy-ros-gz
+RUN apt install -y ros-jazzy-ros-gz
 
-# Verify Display Integration with xeyes
-RUN apt install -y x11-apps
+# -------------------- Install GUI --------------------
 
-# Install x11vnc, xvfb, and xeyes for VNC setup
-RUN apt install -y x11vnc xvfb x11-apps
-
-# Setup VNC password
-RUN mkdir ~/.vnc && x11vnc -storepasswd 1234 ~/.vnc/passwd
+# Install necessary X11 and OpenGL libraries for GUI
+RUN apt install -y --no-install-recommends \
+    mesa-common-dev \
+    libgl1 \
+    libglvnd0 \
+    libglx-mesa0 \
+    libglx0 \
+    libopengl0 \
+    libglu1-mesa \
+    libxcb-glx0 \
+    libxrender1 \
+    libxext6 \
+    libxtst6 \
+    mesa-utils \
+    x11-utils \
+    x11-xserver-utils

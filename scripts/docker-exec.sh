@@ -1,0 +1,1 @@
+docker exec -it ros_container /bin/bash

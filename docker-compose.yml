@@ -1,0 +1,25 @@
+services:
+  ros:
+    build: .
+    container_name: ros_container
+    command: tail -f /dev/null
+    environment:
+      - DISPLAY=novnc:0.0
+      - XDG_RUNTIME_DIR=/tmp/runtime-root
+      - LIBGL_ALWAYS_SOFTWARE=1
+    networks:
+      - x11
+
+  novnc:
+    image: theasp/novnc:latest
+    container_name: novnc_container
+    environment:
+      - DISPLAY_WIDTH=1280
+      - DISPLAY_HEIGHT=720
+    ports:
+      - "8080:8080"
+    networks:
+      - x11
+
+networks:
+  x11:
