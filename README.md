@@ -25,22 +25,22 @@
 
 1. **Build the containers**:
    ```bash
-   ./docker-build.sh
+   scripts/docker-build.sh
    ```
 
 2. **Start the containers**:
    ```bash
-   ./docker-up.sh
+   scripts/docker-up.sh
    ```
 
 3. **Access the ROS container**:
    ```bash
-   ./docker-exec.sh
+   scripts/docker-exec.sh
    ```
 
 4. **Stop the containers**:
    ```bash
-   ./docker-down.sh
+   scripts/docker-down.sh
    ```
 
 ## Requirements
