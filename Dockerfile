@@ -37,3 +37,12 @@ RUN apt install -y --no-install-recommends \
     mesa-utils \
     x11-utils \
     x11-xserver-utils
+
+ENV DISPLAY=novnc:0.0 \
+    XDG_RUNTIME_DIR=/tmp/runtime-root \
+    LIBGL_ALWAYS_SOFTWARE=1
+
+# -------------------- Install CycloneDDS --------------------
+
+RUN apt install -y ros-jazzy-rmw-cyclonedds-cpp
+ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp

@@ -3,12 +3,10 @@ services:
     build: .
     container_name: ros_container
     command: tail -f /dev/null
-    environment:
-      - DISPLAY=novnc:0.0
-      - XDG_RUNTIME_DIR=/tmp/runtime-root
-      - LIBGL_ALWAYS_SOFTWARE=1
     networks:
       - x11
+    volumes:
+      - .:/workspace
 
   novnc:
     image: theasp/novnc:latest
