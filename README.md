@@ -1,15 +1,15 @@
 # Long Term Goal
-- Take in a natural language input from a human
-- Utilize LLMs in order interpet the command and translate the input into robotic movements
-- Follow the movements
+- Take in a natural language input from a human.
+- Utilize LLMs in order interpet the command and translate the input into robotic movements.
+- Follow the movements.
 
 # Current Docker ROS2 + Gazebo Setup
 
 ## Containers
 
-- **ros_container**: This container runs the ROS2 environment, which you can access and interact with. It keeps running with a `tail -f /dev/null` command to allow for manual interaction.
+- **ros_container**: This container runs the ROS2 environment, which you can access and interact with. 
   
-- **novnc_container**: This container runs a noVNC server, allowing remote access to a virtual display through a web browser on port 8080. It provides a graphical interface for the ROS container.
+- **novnc_container**: This container runs a noVNC server, allowing remote access to a virtual display through a web browser on localhost port 8080. It provides a graphical interface for the ROS container.
 
 ## Main Files
 - **Dockerfile**: Defines the base image and setup for the ROS environment.
