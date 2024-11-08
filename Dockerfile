@@ -46,3 +46,9 @@ ENV DISPLAY=novnc:0.0 \
 
 RUN apt install -y ros-jazzy-rmw-cyclonedds-cpp
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
+# -------------------- Add ROS2 DOMAIN ID --------------------
+
+# Following https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html
+
+RUN echo "export ROS_DOMAIN_ID=56" >> ~/.bashrc
