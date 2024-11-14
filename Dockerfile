@@ -53,14 +53,7 @@ ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 RUN echo "export ROS_DOMAIN_ID=56" >> ~/.bashrc
 
-# -------------------- Install Python Packages --------------------
+# Install xeyes
 
-RUN apt update && \
-    apt install -y python3-pip && \
-    pip3 install --upgrade pip &&
-
-RUN cd /workspace && \
-    python3 -m venv venv && \
-    . venv/bin/activate && \
-    pip3 install numpy rclpy
+RUN apt install -y x11-apps
 
