@@ -57,12 +57,12 @@ Ensure you have both Docker and Docker Compose installed before using these scri
    source scripts/build.sh
    ```
 
-   Launch the simulation
+   Launch the simulation (this command will hang as long as the simulation is running)
    ```bash
    ros2 launch simulation launch.py
    ```
 
-   Spawn a robot in the simulation
+   Spawn a robot in the simulation (you'll have to run this in a new terminal)
    ```bash
    ros2 launch simulation spawn.py
    ```

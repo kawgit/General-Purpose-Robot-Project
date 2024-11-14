@@ -36,7 +36,8 @@ RUN apt install -y --no-install-recommends \
     libxtst6 \
     mesa-utils \
     x11-utils \
-    x11-xserver-utils
+    x11-xserver-utils \
+    x11-apps
 
 ENV DISPLAY=novnc:0.0 \
     XDG_RUNTIME_DIR=/tmp/runtime-root \
@@ -47,13 +48,6 @@ ENV DISPLAY=novnc:0.0 \
 RUN apt install -y ros-jazzy-rmw-cyclonedds-cpp
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
-# -------------------- Add ROS2 DOMAIN ID --------------------
+# -------------------- Source ROS2 Workspace Setup --------------------
 
-# Following https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html
-
-RUN echo "export ROS_DOMAIN_ID=56" >> ~/.bashrc
-
-# Install xeyes
-
-RUN apt install -y x11-apps
-
+RUN echo "source /workspace/install/setup.sh" >> ~/.bashrc
