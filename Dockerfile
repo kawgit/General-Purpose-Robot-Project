@@ -5,7 +5,14 @@ RUN apt update && apt upgrade -y
 
 # -------------------- Install ROS2 and Gazebo --------------------
 
-# Install ROS following https://docs.ros.org/en/jazzy/Installation/Alternatives/Ubuntu-Development-Setup.html
+# Install ROS following https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html
+
+RUN apt install locales && \
+    locale-gen en_US en_US.UTF-8 && \
+    update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+    
+ENV LANG=en_US.UTF-8
+
 RUN apt install -y software-properties-common && \
     add-apt-repository universe && \
     apt update && \
@@ -17,11 +24,11 @@ RUN apt install -y software-properties-common && \
     echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
 
 # Install Gazebo following https://gazebosim.org/docs/harmonic/ros_installation/
+
 RUN apt install -y ros-jazzy-ros-gz
 
 # -------------------- Install GUI --------------------
 
-# Install necessary X11 and OpenGL libraries for GUI
 RUN apt install -y --no-install-recommends \
     mesa-common-dev \
     libgl1 \
