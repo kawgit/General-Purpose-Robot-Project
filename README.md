@@ -11,7 +11,7 @@
   
 - **novnc_container**: This container runs a noVNC server, allowing remote access to a virtual display through a web browser on localhost port 8080. It provides a graphical interface for the ROS container.
 
-## Requirements
+## Requirements 
 
 - Docker
 - Docker Compose
