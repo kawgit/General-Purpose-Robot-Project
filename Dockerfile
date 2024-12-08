@@ -3,9 +3,9 @@ FROM ubuntu:noble
 # Update and upgrade the system
 RUN apt update && apt upgrade -y
 
-# -------------------- Install ROS2 and Gazebo --------------------
+# -------------------- Install ROS2 --------------------
 
-# Install ROS following https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html
+# Following https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html
 
 RUN apt install locales && \
     locale-gen en_US en_US.UTF-8 && \
@@ -23,7 +23,9 @@ RUN apt install -y software-properties-common && \
     apt install -y ros-dev-tools ros-jazzy-desktop ros-jazzy-ros-base && \
     echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
 
-# Install Gazebo following https://gazebosim.org/docs/harmonic/ros_installation/
+# -------------------- Install Gazebo --------------------
+
+# Following https://gazebosim.org/docs/harmonic/ros_installation/
 
 RUN apt install -y ros-jazzy-ros-gz
 
@@ -50,11 +52,12 @@ ENV DISPLAY=novnc:0.0 \
     XDG_RUNTIME_DIR=/tmp/runtime-root \
     LIBGL_ALWAYS_SOFTWARE=1
 
-# -------------------- Install CycloneDDS --------------------
+# -------------------- Install ROS2 Control Packages --------------------
 
-RUN apt install -y ros-jazzy-rmw-cyclonedds-cpp
-ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+# Following https://control.ros.org/jazzy/doc/getting_started/getting_started.html#installation
 
-# -------------------- Source ROS2 Workspace Setup --------------------
+RUN apt install -y ros-jazzy-ros2-control ros-jazzy-ros2-controllers
+
+# -------------------- Automatically Source ROS2 Workspace Setup --------------------
 
 RUN echo "source /workspace/install/setup.sh" >> ~/.bashrc
