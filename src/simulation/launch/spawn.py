@@ -5,7 +5,7 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     urdf_path = PathJoinSubstitution([
-        FindPackageShare('simulation'), 'robots', 'go2', 'go2.urdf'
+        FindPackageShare('simulation'), 'robots', 'h1_2', 'h1_2.urdf'
     ])
 
     return LaunchDescription([
@@ -15,7 +15,7 @@ def generate_launch_description():
                 '--reqtype', 'gz.msgs.EntityFactory',
                 '--reptype', 'gz.msgs.Boolean',
                 '--timeout', '1000',
-                '--req', ['sdf_filename: "', urdf_path, '", name: "go2"']
+                '--req', ['sdf_filename: "', urdf_path, '", name: "h1_2"']
             ],
             output='screen'
         )
