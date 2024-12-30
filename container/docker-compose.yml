@@ -1,0 +1,14 @@
+services:
+  gprp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: gprp
+    container_name: gprp
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/workspace
+    security_opt:
+      - seccomp=unconfined
+    shm_size: "512m"

@@ -1,1 +1,1 @@
-docker-compose up -d
+(cd container && docker-compose up -d)

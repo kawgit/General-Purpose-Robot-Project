@@ -1,1 +1,1 @@
-docker exec -it ros_container bash -c "cd /workspace && exec bash"
+(cd container && docker exec -it gprp bash)

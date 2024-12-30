@@ -73,3 +73,7 @@ Ensure you have both Docker and Docker Compose installed before using these scri
    ```bash
    scripts/docker-down.sh
    ```
+
+# Acknoledgements
+
+This project incorporates a Dockerfile from the [Tiryoh/docker-ros2-desktop-vnc](https://github.com/Tiryoh/docker-ros2-desktop-vnc), licensed under the Apache License 2.0.

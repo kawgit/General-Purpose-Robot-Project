@@ -1,1 +1,1 @@
-docker-compose build
+(cd container && docker-compose build)
